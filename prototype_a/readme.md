@@ -6,3 +6,5 @@ conda deactivate
 Save and Export Conda Environment -> conda env export > environment.yml
 
 There is a way to recreate the environment form the environment.yml file.
+
+Following this tutorial -> https://medium.com/@vanflymen/learn-blockchains-by-building-one-117428612f46
