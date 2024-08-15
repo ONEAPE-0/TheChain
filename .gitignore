@@ -1,8 +1,3 @@
-# Ignore the entire Conda environment directory
-prototype_a_conda/
 
-# Alternatively, you can ignore any Conda environment by pattern
-# */bin/
-# */lib/
-# */include/
-# */share/
+# Ignore the entire Conda environment directory in prototype_a
+prototype_a_conda/
