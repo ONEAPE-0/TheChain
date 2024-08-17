@@ -57,11 +57,6 @@ class Blockchain(object):
 
     @staticmethod
     def hash(block):
-        # Hashes a Block
-        pass
-
-    @property
-    def last_block(self):
         """
         Creates a SHA-256 hash of a Block
 
@@ -72,6 +67,10 @@ class Blockchain(object):
         # We must make sure that the Dictionary is Ordered, or we'll have inconsistent hashes
         block_string = json.dumps(block, sort_keys=True).encode()
         return hashlib.sha256(block_string).hexdigest()
+
+    @property
+    def last_block(self):
+        return self.chain[-1]
     
     def proof_of_work(self, last_proof):
         """
@@ -116,7 +115,7 @@ blockchain = Blockchain()
 
 @app.route('/mine', methods=['GET'])
 def mine():
-    # We run a proof of work example to get the next proof...
+    # We run the proof of work algorithm to get the next proof...
     last_block = blockchain.last_block
     last_proof = last_block['proof']
     proof = blockchain.proof_of_work(last_proof)
@@ -124,9 +123,9 @@ def mine():
     # We must receive a reward for finding the proof.
     # The sender is "0" to signify that this node has mined a new coin.
     blockchain.new_transaction(
-        sender='0',
+        sender="0",
         recipient=node_identifier,
-        amount=1
+        amount=1,
     )
 
     # Forge the new Block by adding it to the chain
@@ -140,7 +139,7 @@ def mine():
         'proof': block['proof'],
         'previous_hash': block['previous_hash'],
     }
-    return jsonify(response)
+    return jsonify(response), 200
 
 
 
