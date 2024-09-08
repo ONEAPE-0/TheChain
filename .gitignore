@@ -1,3 +1,4 @@
 
 # Ignore the entire Conda environment directory in prototype_a
 prototype_a_conda/
+venv/
