@@ -1,0 +1,27 @@
+// .vscode\launch.json
+
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Prototype A",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/prototype_a/src/blockchain.py",
+            "console": "integratedTerminal",
+            "env": {
+                "FLASK_APP": "${workspaceFolder}/prototype_a/src/blockchain.py",
+                "FLASK_ENV": "development"
+            },
+            "args": [
+                "run",
+                "--no-debugger",
+                "--no-reload"
+            ],
+            "jinja": true,
+            "justMyCode": true,
+            "pythonPath": "C:/ONEAPE/TheChain/prototype_a/venv/Scripts/python.exe",
+            "cwd": "${workspaceFolder}/prototype_a/src"
+        }
+    ]
+}

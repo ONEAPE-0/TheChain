@@ -1,3 +1,4 @@
+# prototype_a\src\blockchain.py
 import hashlib
 import json
 from textwrap import dedent
@@ -124,7 +125,7 @@ def mine():
     # The sender is "0" to signify that this node has mined a new coin.
     blockchain.new_transaction(
         sender="0",
-        recipient=node_identifier,
+        recipient=node_identifier, #What is the point of this? Reward for mining? How is the address related to the user?
         amount=1,
     )
 
@@ -149,7 +150,7 @@ def new_transaction():
     required = ['sender', 'recipient', 'amount']
     if not all(k in values for k in required):
         return 'Missing values', 400
-    index = blockchain.new_transaction(values['sender', values['recipient'], values['amount']])
+    index = blockchain.new_transaction(values['sender'], values['recipient'], values['amount'])
     response = {'message': f'Transaction will be added to Block {index}'}
     return jsonify(response), 201
 
